@@ -26,5 +26,18 @@ defmodule Wabanex.ExerciseTest do
                errors: []
              } = actual
     end
+
+    test "in: invalid params -> out: invalid changeset" do
+      params = %{
+        youtube_video_url: "youtube.com",
+        protocol_description: "padrão"
+      }
+
+      expected_errors = %{repetitions: ["can't be blank"], name: ["can't be blank"]}
+
+      actual = Exercise.changeset(%Wabanex.Exercise{}, params)
+
+      assert errors_on(actual) == expected_errors
+    end
   end
 end

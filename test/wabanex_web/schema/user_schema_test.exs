@@ -1,4 +1,4 @@
-defmodule WabanexWeb.SchemaTest do
+defmodule WabanexWeb.UserSchemaTest do
   use WabanexWeb.ConnCase, async: true
 
   alias Wabanex.User
@@ -41,10 +41,6 @@ defmodule WabanexWeb.SchemaTest do
 
   describe "users mutations" do
     test "in: valid params -> creates user", %{conn: conn} do
-      test_user = %{email: "julio@email.com", name: "Julio", password: "123456"}
-
-      {:ok, %_User{}} = Create.call(test_user)
-
       mutation = """
         mutation {
           createUser(input: {name: "Joao", email: "joao@email.com", password: "123456"}){
