@@ -12,10 +12,17 @@ defmodule WabanexWeb.Schema.Types.User do
         "The one current training of the user(returns the first created if there are concurrent trainings)"
   end
 
-  @desc "Fields to create exercise"
+  @desc "Fields to create user"
   input_object :create_user_input do
     field :name, non_null(:string), description: "Users name, string"
     field :email, non_null(:string), description: "Users email, email string"
     field :password, non_null(:string), description: "Users password, string"
+  end
+
+  @desc "Fields to update user"
+  input_object :update_user_input do
+    field :name, :string, description: "Users name, string"
+    field :email, :string, description: "Users email, email string"
+    field :password, :string, description: "Users password, string"
   end
 end
